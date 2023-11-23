@@ -1,0 +1,14 @@
+a.	Needed File and software
+  •	Templates File (For HTML file)
+  •	Static File (For the external CSS file)
+  •	App.py (The Main python file)
+  •	POS.sql (The Database for this programme)
+  •	Python (Above 3.9)
+  •	Several pip functions (Needed for the app.py)
+b.	Steps to install
+  First, download all three files and put them under the same file.
+  Then, check if the computer already have Python and pip functions installed. If not, please install them first.
+  	Python official website: https://www.python.org (Install version 3.9 or above)
+  	Pip function needed: ‘flask’, ‘tabulate’ and ‘email_validator’
+  After that, use console or python software itself to start the app.py programme.
+  If the app.py run successfully, you may see one line pop up on the screen: ‘Enter the SQL File location:’, please find the ‘POS.sql’ in the file you downloaded, copy its location, paste it to the console and press enter. ( The location may need to be modify before enter, like replace ‘/’ with ‘//’ or ‘\’, for example: ‘C:/user/Code File/ POS.sql’ become ‘C://user//Code File//POS.sql’)
