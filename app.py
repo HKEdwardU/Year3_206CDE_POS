@@ -7,8 +7,7 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'ABCDE'
 
-#SQL_File = input('Enter the SQL File location:')
-SQL_File = 'H:\\ITB File\\Year 3\\204KM\\POS.sql'
+SQL_File = input('Enter the SQL File location:')
 conn = sqlite3.connect(SQL_File, check_same_thread=False)
 cur = conn.cursor()
 
