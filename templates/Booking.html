@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Marathon Sports - Point of Sales System</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylesheet.css')}}">
+    </head>
+        <body>
+            <header>
+                <h4>
+                    <b id="Title">New Sales Receipt</b>
+                    <br>
+                    <b id="User">Login as: {{User_Name}}</b>
+                    <b id="Date"> <span id="time"> </span> </b>
+                </h4>
+            </header>
+            <nav>
+                <b>
+                    <h2>Booking list</h2>
+                </b>
+            </nav>
+            <div class="container">
+                <table border="2">
+                    <tr id="Heading">
+                        <td style="width: 130px;">Booking ID</td>
+                        <td style="width: 130px;">Customer ID</td>
+                        <td style="width: 130px;">Product ID</td>
+                        <td style="width: 130px;">Product Name</td>
+                        <td style="width: 130px;">Booking Qty</td>
+                    </tr>
+                </table>
+                {{Booking_Table | safe }}
+            </div>
+            <div class="Function_box">
+                    <form action="/management">
+                        <button id="Function">
+                        Management
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Inventory">
+                        <button id="Function">
+                        inventory
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Membership">
+                        <button id="Function">
+                        membership
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Total_Price">
+                        <button id="Function">
+                        Go Back
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Logout">
+                        <button id="Function">
+                        Log-Out
+                        </button>
+                    </form>
+            </div>
+            <p style="height: 425px;"></p>
+            <form action="/Booking" method="post">
+                <b>Added a new Booking record with customer ID:</b>
+                <input type="text" id="New_B_CID" name="New_B_CID" required>
+                <br>
+                <b>, Product ID:</b>
+                <input type="text" id="New_B_PID" name="New_B_PID" required>
+                <br>
+                <b>and it's Qty:</b>
+                <input type="text" id="New_B_Qty" name="New_B_Qty" required>
+                <br>
+                <input type="hidden" id="Function_ID" name="Function_ID" value="1">
+                <button type="submit">
+                    Submit
+                </button>
+            </form>
+            <b>{{message}}</b>
+            <br>
+            <form action="/Booking" method="post">
+                <b>Delete a Booking record with booking ID:</b>
+                <input type="text" id="D_BID" name="D_BID" required>
+                <br>
+                <input type="hidden" id="Function_ID" name="Function_ID" value="2">
+                <button type="submit">
+                    Delete
+                </button>
+            </form>
+            <b>{{Delete_message}}</b>
+            <p style="height: 150px;"></p>
+            <footer>
+            </footer>
+        </body>
+
+        <script>
+            
+            function refreshTime() {
+            const timeDisplay = document.getElementById("time");
+            const dateString = new Date().toLocaleString();
+            const formattedString = dateString.replace(", ", " - ");
+            timeDisplay.textContent = formattedString;
+            }
+            setInterval(refreshTime, 1000);
+            
+            function Cart_Table(){
+                const Cart_List = document.getElementById("Item_List");
+            }
+        
+            
+
+        </script>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Marathon Sports - Point of Sales System</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylesheet.css')}}">
+    </head>
+        <body>
+            <header>
+                <h4>
+                    <b id="Title">New Sales Receipt</b>
+                    <br>
+                    <b id="User">Login as: {{User_Name}}</b>
+                    <b id="Date"> <span id="time"> </span> </b>
+                </h4>
+            </header>
+            <nav>
+                <form action="/POS" method="post">
+                    <input type="text" id="Find_PID" name="Find_PID">
+                    <input type="hidden" id="Function_ID" name="Function_ID" value="1">
+                    <button type="submit" id="Scan">
+                    Find
+                    </button>
+                </form>
+                <b>{{Error_Message}}</b>
+                <form action="/POS" method="post" style="position: relative;float: right; top: -28px;">
+                    <input type="text" id="Find_CID" name="Find_CID">
+                    <input type="hidden" id="Function_ID" name="Function_ID" value="2">
+                    <button type="submit">
+                        Find membership
+                    </button>
+                    <br>
+                    <b>{{M_Error}}</b>
+                </form>
+            </nav>
+            <div class="container">
+                <table border="2">
+                    <tr id="Heading">
+                        <td id="Item_ID" style="width: 130px;">item ID</td>
+                        <td id="Size_ID" style="width: 130px;">Size</td>
+                        <td style="width: 130px;">item Name</td>
+                        <td style="width: 130px;">Price</td>
+                        <td style="width: 130px;">Qty</td>
+                        <td style="width: 130px;">Ext Price</td>
+                    </tr>
+                </table>
+                {{CartTable | safe }}
+            </div>
+            <div class="Function_box">
+                    <form action="/management">
+                        <button id="Function">
+                        Management
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Inventory">
+                        <button id="Function">
+                        inventory
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Membership">
+                        <button id="Function">
+                        membership
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Booking">
+                        <button id="Function">
+                        booking
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Logout">
+                        <button id="Function">
+                        Log-Out
+                        </button>
+                    </form>
+            </div>
+            <p style="height: 425px;"></p>
+            <form action="/Delete" method="post">
+                <input type="text" id="Find_PID" name="Find_PID">
+                <p>Delete
+                <input type="text" id="Num" name="Num">
+                /all of this product (keep the box empty)</p>
+                <button type="submit" id="Scan">
+                Delete
+                </button>
+            </form>
+                <p>{{Delete_Message}}</p>
+            <br>
+            <b id="Price">
+                Shipping
+                <div class="number-box" style="background-color: #ccc;">
+                    $0
+                </div>
+                <br>
+                Total
+                <div class="number-box" style="background-color: rgb(34, 34, 34);">
+                    <p style="color: #ccc;">${{Total_Price}}</p>
+                </div>
+            </b>
+            <p style="height: 150px;"></p>
+            <footer>
+                <form action="/Cancel">
+                    <button id="Cancel">
+                        Cancel
+                    </button>
+                </form>
+                <form action="/payment">
+                    <button id="Payment" type="submit">
+                        Go to Payment
+                    </button>
+                </form>
+            </footer>
+        </body>
+
+        <script>
+            
+            function refreshTime() {
+            const timeDisplay = document.getElementById("time");
+            const dateString = new Date().toLocaleString();
+            const formattedString = dateString.replace(", ", " - ");
+            timeDisplay.textContent = formattedString;
+            }
+            setInterval(refreshTime, 1000);
+            
+            function Cart_Table(){
+                const Cart_List = document.getElementById("Item_List");
+            }
+        
+            
+
+        </script>
+
+</html>

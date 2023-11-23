@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Marathon Sports - Point of Sales System</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylesheet.css')}}">
+    </head>
+        <body>
+
+            <header>
+                <h4>
+                    <b id="Title">New Sales Receipt</b>
+                    <br>
+                    <b id="User">Login as: {{User_Name}}</b>
+                    <b id="Date"> <span id="time"> </span> </b>
+                </h4>
+            </header>
+
+            <div class="container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/1200px-Mastercard_2019_logo.svg.png"
+                width="92px"
+                height="56px">
+                <img src="https://i.ibb.co/1759dLP/gc0-Sw-AAAABJRU5-Erk-Jggg-small.png" alt="gc0-Sw-AAAABJRU5-Erk-Jggg-small"
+                width="163px"
+                height="56px">
+                <img src="https://i.ibb.co/MBXPDm8/1200px-EPS-Logo.png" alt="1200px-EPS-Logo"\
+                width="73px"
+                height="56px">
+                <img src="https://i.ibb.co/Lh0qMRx/Alipay-HK.png" alt="Alipay-HK"
+                width="56px"
+                height="56px">
+                <img src="https://i.ibb.co/CwkFNv8/octopus-sign.png" alt="octopus-sign"
+                width="92px"
+                height="56px">
+                <form action='/payment' method="POST">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text"><br>
+
+                    <label for="valid-date">Vaild Date:</label>
+                    <input type="text" placeholder="MM/YY"><br>
+
+                    <label for="cvc">CVC:</label>
+                    <input type="text"><br>
+
+                    <label for="card-owner">Card Owner Name:</label>
+                    <input type="text"><br>
+
+                    <label for="PM_Code">Promotion code:</label>
+                    <input type="text" id="PM_Code" name="PM_Code" >
+
+                    <input type="hidden" name="PM_Code" value="">
+                    <br>
+                    <input type="submit" value="Set Payment">
+                </form>
+                <form action="/Total_Price">
+                    <button>Cancel</button>
+                </form>
+            </div>
+            <div class="Function_box">
+                <form action="/management">
+                    <button id="Function">
+                    Management
+                    </button>
+                </form>
+                <p style="height: 60px;"></p>
+                <form action="/Inventory">
+                    <button id="Function">
+                    inventory
+                    </button>
+                </form>
+                <p style="height: 60px;"></p>
+                <form action="/Membership">
+                    <button id="Function">
+                    membership
+                    </button>
+                </form>
+                <p style="height: 60px;"></p>
+                <form action="/Booking">
+                    <button id="Function">
+                    booking
+                    </button>
+                </form>
+                <p style="height: 60px;"></p>
+                <form action="/Logout">
+                    <button id="Function">
+                    Log-Out
+                    </button>
+                </form>
+            </div>
+        </body>
+
+        <script>
+            
+            function refreshTime() {
+            const timeDisplay = document.getElementById("time");
+            const dateString = new Date().toLocaleString();
+            const formattedString = dateString.replace(", ", " - ");
+            timeDisplay.textContent = formattedString;
+            }
+            setInterval(refreshTime, 1000);
+            
+        </script>
+
+</html>

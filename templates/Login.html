@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Marathon Sports - Point of Sales System</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylesheet.css')}}">
+        <style>
+
+            .Login {
+                width: 350px;
+                height: 500px;
+                margin: 20px auto;
+                padding: 20px;
+                overflow: auto;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .Function_box {
+                position: absolute;
+                right: 5px;
+                width: 70px;
+                height: 380px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            #Staff_ID {
+                width: 220px;
+            }
+
+            #password {
+                width: 220px;
+            }
+
+        </style>
+    </head>
+        <body>
+            <header>
+                <h4>
+                    <b id="Title">New Sales Receipt</b>
+                    <br>
+                    <b id="Date"> <span id="time"> </span> </b>
+                </h4>
+            </header>
+            <p style="height: 100px;"></p>
+            <form class="Login" method="post" action="/">
+                <p style="height: 100px;"></p>
+                <div class="form-group">
+                    <label for="name">Staff ID</label>
+                    <p></p>
+                    <input type="text" id="Staff_ID" name="Staff_ID" class="from-control" required><br>
+                </div>
+                <p style="height: 20px;"></p>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <p></p>
+                    <input type="password" id="password" name="password" class="from-control" required><br>
+                </div>
+                <p style="height: 20px;"></p>
+                <div class="form-group"></div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <br>
+                    <label id="signIn-message">{{SignInM}}</label>
+                </div>
+            </form>
+        </body>
+
+        <script>
+            
+            function refreshTime() {
+            const timeDisplay = document.getElementById("time");
+            const dateString = new Date().toLocaleString();
+            const formattedString = dateString.replace(", ", " - ");
+            timeDisplay.textContent = formattedString;
+            }
+            setInterval(refreshTime, 1000);
+            
+        </script>
+
+</html>

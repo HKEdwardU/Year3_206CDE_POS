@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Marathon Sports - Point of Sales System</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylesheet.css')}}">
+        <style>
+
+            td {
+                height: 30px;
+                width: 140px;
+                font-weight: bold;
+            }
+
+        </style>
+    </head>
+        <body>
+            <header>
+                <h4>
+                    <b id="Title">New Sales Receipt</b>
+                    <br>
+                    <b id="User">Login as: {{User_Name}}</b>
+                    <b id="Date"> <span id="time"> </span> </b>
+                </h4>
+            </header>
+            <nav>
+                <form action="/Inventory" method="post">
+                    <input type="text" id="Find_PID" name="Find_PID">
+                    <button type="submit" id="Scan">
+                        Find
+                    </button>
+                </form>
+            </nav>
+            <div class="container">
+                <table border="2">
+                    <tr id="Heading">
+                        <td id="Item_ID" style="width: 140px;">item ID</td>
+                        <td id="Size_ID" style="width: 140px;">Size</td>
+                        <td style="width: 140px;">item Name</td>
+                        <td style="width: 140px;">Qty</td>
+                    </tr>
+                </table>
+                {{Invent_Table | safe }}
+            </div>
+            <div class="Function_box">
+                    <form action="/management">
+                        <button id="Function">
+                        Management
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Membership">
+                        <button id="Function">
+                        membership
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Booking">
+                        <button id="Function">
+                        booking
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Total_Price">
+                        <button id="Function">
+                        Go Back
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Logout">
+                        <button id="Function">
+                        Log-Out
+                        </button>
+                    </form>
+            </div>
+            <p style="height: 425px;"></p>
+            <footer>
+
+            </footer>
+        </body>
+
+        <script>
+            
+            function refreshTime() {
+            const timeDisplay = document.getElementById("time");
+            const dateString = new Date().toLocaleString();
+            const formattedString = dateString.replace(", ", " - ");
+            timeDisplay.textContent = formattedString;
+            }
+            setInterval(refreshTime, 1000);
+            
+            function Cart_Table(){
+                const Cart_List = document.getElementById("Item_List");
+            }
+        
+            
+
+        </script>
+
+</html>

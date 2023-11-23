@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    height: 30px;
+    width: 130px;
+    font-weight: bold;
+    border: 1px solid;
+}
+
+.container {
+    position: absolute;
+    left: 5px;
+    width: 800px;
+    height: 380px;
+    margin: 20px auto;
+    padding: 20px;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.Function_box {
+    position: absolute;
+    right: 5px;
+    width: 120px;
+    height: 380px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.number-box {
+    width: 100px; 
+    height: 40px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    text-align: right;
+    line-height: 40px; 
+    font-size: 18px; 
+}
+
+#Function {
+    position: absolute;
+    right: 10px;
+    width: 100px;
+    height: 55px;
+    border-radius: 5px;
+    background-color: blanchedalmond;
+}
+
+#M_Function {
+    position: relative;
+    float: left;
+    left: 10px;
+    width: 90px;
+    height: 55px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: lightblue;
+}
+
+#Heading {
+    background-color: aquamarine;
+}
+
+#Item_List {
+    background-color: #eee;
+}
+
+#Item_ID {
+    text-align: right;
+}
+
+#Title {
+    position: absolute;
+    left: 5px;
+}
+
+#User {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+#Date {
+    position: absolute;
+    right: 5px;
+}
+
+#Scan {
+    width: 60px;
+    height: 30px;
+}
+
+#Price {
+    position: absolute;
+    right: 5px;
+}
+
+#Cancel {
+    position: absolute;
+    right: 135px;
+    width: 55px;
+    height: 55px;
+    border-radius: 5px;
+}
+
+#Payment {
+    position: absolute;
+    right: 5px;
+    width: 120px;
+    height: 55px;
+    border-radius: 5px;
+}
+
+#Find_PID {
+    width: 280px;
+}
+
+#Num {
+    width: 50px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}

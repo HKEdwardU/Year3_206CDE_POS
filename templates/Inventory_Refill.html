@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Marathon Sports - Point of Sales System</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylesheet.css')}}">
+    </head>
+        <body>
+            <header>
+                <h4>
+                    <b id="Title">New Sales Receipt</b>
+                    <br>
+                    <b id="User">Login as: {{User_Name}}</b>
+                    <b id="Date"> <span id="time"> </span> </b>
+                </h4>
+            </header>
+            <nav>
+
+            </nav>
+            <div class="container" style="height: 800px">
+                <b>Management Function</b>
+                <p style="height: 20px;"></p>
+                <form action="/Record">
+                    <button id="M_Function">
+                        Sales Record
+                    </button>
+                </form>
+                <form action="/Product_List">
+                    <button id="M_Function">
+                        Product List
+                    </button>
+                </form>
+                <form action="/Inventory_Refill">
+                    <button id="M_Function">
+                        Inventory Refill
+                    </button>
+                </form>
+                <form action="/Sales_Data_Product">
+                    <button id="M_Function">
+                        Sales Data for product
+                    </button>
+                </form>
+                <form action="/Sales_Data_Day">
+                    <button id="M_Function">
+                        Sales Data per month
+                    </button>
+                </form>
+                <form action="/Promotion">
+                    <button id="M_Function">
+                        Promotion
+                    </button>
+                </form>
+                <form action="/Staff">
+                    <button id="M_Function">
+                        Staff
+                    </button>
+                </form>
+                <p style="height: 80px;"></p>
+                <table border="2">
+                    <tr id="Heading">
+                        <td id="Item_ID" style="width: 130px;">item ID</td>
+                        <td id="Size_ID" style="width: 130px;">Size</td>
+                        <td style="width: 130px;">item Name</td>
+                        <td style="width: 130px;">Qty</td>
+                    </tr>
+                </table>
+                {{Invent_Table | safe }}
+                <p style="height: 50px;"></p>
+                <form action="/Inventory_Refill" method="post">
+                    <b>Refill the inventory for the Product with ID:*</b>
+                    <input type="text" id="Add_I_PID" name="Add_I_PID" required>
+                    <br>
+                    <b>, and refilled quantity:*</b>
+                    <input type="text" id="Refill_Value" name="Refill_Value" required>
+                    <br>
+                    <b>[Box With * must be filled]</b>
+                    <br>
+                    <input type="hidden" id="Function_ID" name="Function_ID" value="1">
+                    <button type="submit">
+                        Add
+                    </button>
+                </form>
+                <b>{{message}}</b>
+                <br>
+                <form action="/Inventory_Refill" method="post">
+                    <b>Update the inventory for the Product with ID:*</b>
+                    <input type="text" id="Update_I_PID" name="Update_I_PID" required>
+                    <br>
+                    <b>, and update quantity:*</b>
+                    <input type="text" id="Update_Value" name="Update_Value" required>
+                    <br>
+                    <b>[Box With * must be filled]</b>
+                    <br>
+                    <input type="hidden" id="Function_ID" name="Function_ID" value="2">
+                    <button type="submit">
+                        Update
+                    </button>
+                </form>
+                <b>{{Update_message}}</b>
+            </div>
+            <div class="Function_box">
+                    <form action="/Inventory">
+                        <button id="Function">
+                        inventory
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="">
+                        <button id="Function">
+                        membership
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="">
+                        <button id="Function">
+                        booking
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Total_Price">
+                        <button id="Function">
+                        Go Back
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Logout">
+                        <button id="Function">
+                        Log-Out
+                        </button>
+                    </form>
+            </div>
+        </body>
+
+        <script>
+            
+            function refreshTime() {
+            const timeDisplay = document.getElementById("time");
+            const dateString = new Date().toLocaleString();
+            const formattedString = dateString.replace(", ", " - ");
+            timeDisplay.textContent = formattedString;
+            }
+            setInterval(refreshTime, 1000);
+            
+            function Cart_Table(){
+                const Cart_List = document.getElementById("Item_List");
+            }
+        
+            
+
+        </script>
+
+</html>

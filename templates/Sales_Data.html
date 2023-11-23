@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Marathon Sports - Point of Sales System</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylesheet.css')}}">
+        <style>
+
+            .container {
+                position: absolute;
+                left: 5px;
+                width: 800px;
+                height: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                overflow: auto;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+        </style>
+    </head>
+        <body>
+            <header>
+                <h4>
+                    <b id="Title">New Sales Receipt</b>
+                    <br>
+                    <b id="User">Login as: {{User_Name}}</b>
+                    <b id="Date"> <span id="time"> </span> </b>
+                </h4>
+            </header>
+            <nav>
+
+            </nav>
+            <div class="container">
+                <b>Management Function</b>
+                <p style="height: 20px;"></p>
+                <form action="/Record">
+                    <button id="M_Function">
+                        Sales Record
+                    </button>
+                </form>
+                <form action="/Product_List">
+                    <button id="M_Function">
+                        Product List
+                    </button>
+                </form>
+                <form action="/Inventory_Refill">
+                    <button id="M_Function">
+                        Inventory Refill
+                    </button>
+                </form>
+                <form action="/Sales_Data_Product">
+                    <button id="M_Function">
+                        Sales Data for product
+                    </button>
+                </form>
+                <form action="/Sales_Data_Day">
+                    <button id="M_Function">
+                        Sales Data per month
+                    </button>
+                </form>
+                <form action="/Promotion">
+                    <button id="M_Function">
+                        Promotion
+                    </button>
+                </form>
+                <form action="/Staff">
+                    <button id="M_Function">
+                        Staff
+                    </button>
+                </form>
+                <p style="height: 80px;"></p>
+                <table border="2">
+                    <tr id="Heading">
+                        <td style="width: 130px;">Product ID</td>
+                        <td style="width: 130px;">Size ID</td>
+                        <td style="width: 130px;">Product Name</td>
+                        <td style="width: 130px;">Product Price</td>
+                        <td style="width: 130px;">Qty</td>
+                        <td style="width: 130px;">Total Price</td>
+                    </tr>
+                </table>
+                {{Data_Table | safe }}
+            </div>
+            <div class="Function_box">
+                    <form action="/Inventory">
+                        <button id="Function">
+                        inventory
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Membership">
+                        <button id="Function">
+                        membership
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Booking">
+                        <button id="Function">
+                        booking
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Total_Price">
+                        <button id="Function">
+                        Go Back
+                        </button>
+                    </form>
+                    <p style="height: 60px;"></p>
+                    <form action="/Logout">
+                        <button id="Function">
+                        Log-Out
+                        </button>
+                    </form>
+            </div>
+            <p style="height: 20px;"></p>
+        </body>
+
+        <script>
+            
+            function refreshTime() {
+            const timeDisplay = document.getElementById("time");
+            const dateString = new Date().toLocaleString();
+            const formattedString = dateString.replace(", ", " - ");
+            timeDisplay.textContent = formattedString;
+            }
+            setInterval(refreshTime, 1000);
+            
+            function Cart_Table(){
+                const Cart_List = document.getElementById("Item_List");
+            }
+        
+            
+
+        </script>
+
+</html>
